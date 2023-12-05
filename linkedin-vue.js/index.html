@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Contacts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=alexandria:300|chilanka:400|roboto:400|space-mono:400"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <p id="pending">pending: {{count}}</p>
+            <button>Manage</button>
+        </header>
+        <main>
+            <div class="pplAndButton">
+                <p>People you may know</p>
+                <button>See all</button>
+
+            </div>
+            <ul id="contacts">
+                <li v-for="person in persons" :key="person">
+
+                    <div class="personContainer">
+
+                        <figure v-if="persons.backgroundImage" class="bg-img-figure"></figure>
+                        <img class="bg-img" :src="person.backgroundImage">
+                        </figure>
+
+                        <button class="btnClose" @click="changeContact(person)">x</button>
+
+                        <div class="contentContainer">
+                            <img class="personImg" :src="person.picture" alt="Profile Picture">
+                            <p>{{person.name.title}}
+                                {{person.name.first}}
+                                {{person.name.last}}</p>
+                            <p>{{person.title}}</p>
+                            <p>{{person.mutualConnections}} </p>
+                            <button class="btnConnect" v-on:click="connect(person)">{{person.connectionStatus}}</button>
+
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
+        </main>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>
