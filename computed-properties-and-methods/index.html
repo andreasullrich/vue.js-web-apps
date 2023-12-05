@@ -34,11 +34,14 @@
                     <tr v-for="book in filteredBooks" :key="book.isbn">
                         <td>{{ book.id}}</td>
                         <td>{{ book.title }}</td>
+                        <td>{{ book.subtitle }}</td>
                         <td>{{ book.isbn }}</td>
+                        <td>{{ book.abstract }}</td>
                         <td>{{ book.author }}</td>
                         <td>{{ book.publisher }}</td>
                         <td>{{ book.originalPrice }}{{ book.discountedPrice }}</td>
                         <td>{{ book.numPages }}</td>
+                        <td>{{ isBookmarked }}</td>
                     </tr>
                 </tbody>
             </table>
