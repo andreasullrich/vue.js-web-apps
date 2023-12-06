@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Color Mixer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Color Mixer</h1>
+            <div class="controls">
+                <label for="red">Red:</label>
+                <input type="range" id="red" v-model="red" min="0" max="255">
+                <label for="green">Green:</label>
+                <input type="range" id="green" v-model="green" min="0" max="255">
+                <label for="blue">Blue:</label>
+                <input type="range" id="blue" v-model="blue" min="0" max="255">
+            </div>
+            <div class="color-preview">
+                <div :style="{ backgroundColor: displayColor }" id="color-box"></div>
+                <p id="color-value">Color: {{ displayColor }}</p>
+            </div>
+        </header>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26/dist/vue.global.prod.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
