@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" v-model="newTodo" placeholder="Add a new todo">
+        <button @click="addTodo">Add</button>
+
+        <input type="radio" id="all" value="all" v-model="filter"> All
+        <input type="radio" id="open" value="open" v-model="filter"> Open
+        <input type="radio" id="done" value="done" v-model="filter"> Done
+        <button @click="removeDoneTodos">Remove Done</button>
+
+        <ul>
+            <li v-for="todo in filteredTodos" :key="todo.id">
+                <label :class="{ 'done': todo.done }">
+                    <input type="checkbox" v-model="todo.done" @change="updateTodo(todo)">
+                    {{ todo.description }}
+                </label>
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
